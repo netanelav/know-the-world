@@ -38,6 +38,7 @@ function handleData(response) {
   let flagCode = country.alpha2Code;
   let result = 
   `
+  <img src="https://www.countryflags.io/${flagCode}/shiny/64.png">
   <ul>
     <li>Country: ${countryName}</li>
     <li>Native Name: ${nativeName}</li>
