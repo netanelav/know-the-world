@@ -1,14 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  background: url("../images/background.jpg") center top no-repeat;
-}
-
-.container {
-  margin: 0;
+  background: #f5f8fd;
+  scroll-behavior: smooth;
 }
 
 .header h1 {
+  text-align: center;
   color: #413e66;
   font-weight: bold;
   font-size: 60px;
@@ -20,45 +18,84 @@ body {
   color: #1bb1dc;
 }
 
+.search {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+form input {
+  width: 60%;
+}
+
 #search-btn {
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 7px 20px;
+  padding: 7px 25px;
   border-radius: 4px;
   transition: 0.5s;
   background: #1bb1dc;
   color: #fff;
+  transform: translateY(-2px);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#search-btn:hover {
+  background: #10698b;
+}
+
+ul {
+  padding: 10%;
+  list-style: none;
+  margin: 0;
+}
+
+.main {
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
-  visibility: hidden;  
+  visibility: hidden;
   padding: 30px;
   overflow: hidden;
   border-radius: 10px;
-  margin: 30px;
+  margin: 20px 20px 30px 40px;
   background: #fff;
-  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.2);
   transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .box:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
 #country-name {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
+  margin: 0;
 }
 
-/* .header p {
-    margin: 30px;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #413e66
-} */
+#country-data {
+  margin: 0;
+}
 
 #result {
   font-size: 20px;
+}
+
+select {
+  background: none;
+  border: none;
+  color: #514e7f;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+option {
+  background: none;
 }
