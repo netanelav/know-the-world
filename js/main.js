@@ -36,7 +36,7 @@ function handleData(response) {
     let population = country.population;
     let flagCode = country.alpha2Code;
     let box = `
-    <div class="col-4">
+    <div class="col-md-4">
     <div class="box">
     <p id="country-flag"><img src="https://www.countryflags.io/${flagCode}/shiny/64.png"></p>
     <p id="country-name">${countryName}</p>
