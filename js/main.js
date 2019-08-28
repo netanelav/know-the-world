@@ -15,11 +15,11 @@ function getData() {
       "x-rapidapi-key": "64bcf07ed2msh70ad2f22fea355ap132612jsn16c1cbecdd70"
     },
     success: function(response) {
-      console.log(response);
       handleData(response);
     },
-    error: function(response) {
-      alert("error");
+    error: function() {
+      let error = `<h5>Something' wrong with your input, please search again...</h5>`;
+      $(".main").append(error);
     }
   });
 }
