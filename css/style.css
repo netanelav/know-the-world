@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../images/background.jpg") center top no-repeat;
+}
+
+.container {
+  margin: 0;
+}
+
+.header h1 {
+  color: #413e66;
+  font-weight: bold;
+  font-size: 60px;
+  font-family: "Montserrat", sans-serif;
+  margin: 30px;
+}
+
+.header h1 span {
+  color: #1bb1dc;
+}
+
+#search-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 7px 20px;
+  border-radius: 4px;
+  transition: 0.5s;
+  background: #1bb1dc;
+  color: #fff;
+}
+
+.box {
+  visibility: hidden;  
+  padding: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 30px;
+  background: #fff;
+  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: scale(1.1);
+}
+
+#country-name {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* .header p {
+    margin: 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #413e66
+} */
+
+#result {
+  font-size: 20px;
+}

@@ -4,52 +4,60 @@ $("#search-btn").click(function(e) {
 });
 
 function getCountry() {
-  $("#result").html("");
+  $("#country-flag").html("");
+  $("#country-name").html("");
+  $("#country-data").html("");
   let country = $("#query").val();
   let settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": `https://restcountries-v1.p.rapidapi.com/name/${country}`,
-    "method": "GET",
-    "headers": {
+    async: true,
+    crossDomain: true,
+    url: `https://restcountries-v1.p.rapidapi.com/name/${country}`,
+    method: "GET",
+    headers: {
       "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
       "x-rapidapi-key": "64bcf07ed2msh70ad2f22fea355ap132612jsn16c1cbecdd70"
     }
-  }
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response)
+  };
+
+  $.ajax(settings).done(function(response) {
+    console.log(response);
     handleData(response);
   });
 }
 
 function handleData(response) {
   let country = response[0];
-  let countryName = country.name;
-  let nativeName = country.nativeName;
+  let countryName = `${country.name} / ${country.nativeName}`;
   let capital = country.capital;
   let languages = country.languages;
-  let borders = country.borders;
+  // let borders = country.borders;
   let region = country.region;
   let callingCode = country.callingCodes;
   let currencies = country.currencies;
   let population = country.population;
   let timezones = country.timezones;
+
   let flagCode = country.alpha2Code;
-  let result = 
-  `
-  <img src="https://www.countryflags.io/${flagCode}/shiny/64.png">
-  <ul>
-    <li>Country: ${countryName}</li>
-    <li>Native Name: ${nativeName}</li>
+  let flag = `<img src="https://www.countryflags.io/${flagCode}/shiny/64.png">`;
+  $("#country-flag").append(flag);
+  $("#country-name").append(countryName);
+
+  let data = `<ul>
     <li>Capital: ${capital}</li>
     <li>Languages: ${languages}</li>
     <li>Region: ${region}</li>
-    <li>Borders: ${borders}</li>
     <li>Calling Code: ${callingCode}</li>
-    <li>Currencies: ${currencies}</li>
+    <li>Currency: ${currencies}</li>
     <li>Population: ${population}</li>
-    <li>Timezones: ${timezones}</li>
-  </ul>`
-  $('#result').append(result);
+    <li>Timezone: ${timezones}</li>
+  </ul>`;
+  $("#country-data").append(data);
+  $(".box").css("visibility", "visible");
 }
+
+{
+  /* <li>Borders: ${borders}</li> */
+}
+// function displayAllFlags() {
+
+// }
