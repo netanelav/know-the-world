@@ -18,7 +18,7 @@ function getData() {
       handleData(response);
     },
     error: function() {
-      let error = `<h5>Something' wrong with your input, please search again...</h5>`;
+      let error = `<h5>Nothing to show, please try again...</h5>`;
       $(".main").append(error);
     }
   });

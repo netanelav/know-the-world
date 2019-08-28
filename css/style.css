@@ -28,6 +28,10 @@ form input {
   width: 60%;
 }
 
+#search-form, .search-field  {
+  margin-right: 15px
+}
+
 #search-btn {
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
@@ -45,6 +49,10 @@ form input {
 
 #search-btn:hover {
   background: #10698b;
+}
+
+#search-btn img {
+  width: 20px;
 }
 
 ul {
@@ -94,8 +102,13 @@ select {
   color: #514e7f;
   font-size: 20px;
   font-weight: 600;
+  text-align-last:center; 
 }
 
 h5 {
   margin-top: 20px;
+}
+
+.footer {
+  margin: 30px;
 }
