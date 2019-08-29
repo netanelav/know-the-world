@@ -26,13 +26,14 @@
             <option value="capital">Capital</option>
             <option value="currency">Currency</option>
             <option value="region">Region</option>
-            <option value="calling-code">Calling Code</option>
+            <option value="calling-code">Dialing Area</option>
         </select>
       </div>
 
       <div class="col-md-8">
-        <form id="search-form" name="search-form">
-          <input type="search" id="query" class="search-field"/>
+        <form id="search-form" name="search-form" autocomplete="off">
+          <input type="search" id="query" class="search-field" list="countries"/>
+          <datalist id="countries" dir="ltr"></datalist>
           <button name="search-btn" id="search-btn"><img src="images/search.svg"></button>
         </form>
       </div>
@@ -49,6 +50,8 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js" integrity="sha256-lFA8dPmfmR4AQorTbla7C2W0aborhztLt0IQFLAVBTQ=" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/autocomplete.js"></script>
   </body>
 </html>

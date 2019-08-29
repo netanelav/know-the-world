@@ -48,13 +48,11 @@ function handleData(response) {
       case "Region":
         output = country.region.toLowerCase();
         break;
-      case "Calling Code":
+      case "Dialing Area":
         output = country.callingCodes;
         break;
     }
 
-    console.log(input)
-    console.log(output)
     if (output.includes(input)) {
       let countryName = `${country.name} / ${country.nativeName}`;
       let capital = country.capital;
@@ -79,8 +77,8 @@ function handleData(response) {
             </ul>
         </div>
       </div>`;
-    $(".main").append(box);
-    $(".box").css("visibility", "visible");
+      $(".main").append(box);
+      $(".box").css("visibility", "visible");
     }
   }
 }
@@ -95,16 +93,16 @@ function handleUrl() {
       break;
     case "Capital":
       url = `${BASE}/capital/${input}`;
-        break;
+      break;
     case "Currency":
       url = `${BASE}/currency/${input}`;
-        break;
+      break;
     case "Region":
       url = `${BASE}/region/${input}`;
-        break;
-    case "Calling Code":
+      break;
+    case "Dialing Area":
       url = `${BASE}/callingcode/${input}`;
-        break;
+      break;
   }
   return url;
 }
