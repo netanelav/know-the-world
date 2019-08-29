@@ -1,3 +1,6 @@
+const BASE = `https://restcountries-v1.p.rapidapi.com`;
+const ERROR = `<h5>Nothing to show, please try again...</h5>`;
+
 $("#search-btn").click(function(e) {
   e.preventDefault();
   getData();
@@ -7,7 +10,7 @@ function getData() {
   $(".main").html("");
   $.ajax({
     type: "GET",
-    url: searchType(),
+    url: handleUrl(),
     async: true,
     crossDomain: true,
     headers: {
@@ -18,63 +21,90 @@ function getData() {
       handleData(response);
     },
     error: function() {
-      let error = `<h5>Nothing to show, please try again...</h5>`;
+      let error = ERROR;
       $(".main").append(error);
     }
   });
 }
 
 function handleData(response) {
+  let input = $("#query").val().toLowerCase();
+  let searchBy = $("option:selected").text();
   for (let i = 0; i < response.length; i++) {
     let country = response[i];
-    let countryName = `${country.name} / ${country.nativeName}`;
-    let capital = country.capital;
-    let languages = country.languages;
-    let region = country.region;
-    let callingCode = country.callingCodes;
-    let currency = country.currencies;
-    let population = country.population;
-    let flagCode = country.alpha2Code;
-    let box = `
-    <div class="col-md-4">
-    <div class="box">
-    <p id="country-flag"><img src="https://www.countryflags.io/${flagCode}/shiny/64.png"></p>
-    <p id="country-name">${countryName}</p>
-    <ul id="country-data">
-    <li>Capital: ${capital}</li>
-    <li>Languages: ${languages}</li>
-    <li>Region: ${region}</li>
-    <li>Calling Code: ${callingCode}</li>
-    <li>Currency: ${currency}</li>
-          <li>Population: ${population}</li>
-          </ul>
-      </div>
+    let output = country.name.toLowerCase();
+
+    switch (searchBy) {
+      case "Name":
+        output = country.name.toLowerCase();
+        break;
+      case "Capital":
+        output = country.capital.toLowerCase();
+        break;
+      case "Currency":
+        output = country.currencies;
+        input = input.toUpperCase();
+        break;
+      case "Region":
+        output = country.region.toLowerCase();
+        break;
+      case "Calling Code":
+        output = country.callingCodes;
+        break;
+    }
+
+    console.log(input)
+    console.log(output)
+    if (output.includes(input)) {
+      let countryName = `${country.name} / ${country.nativeName}`;
+      let capital = country.capital;
+      let languages = country.languages;
+      let region = country.region;
+      let callingCode = country.callingCodes;
+      let currency = country.currencies;
+      let population = country.population;
+      let flagCode = country.alpha2Code;
+      let box = `
+      <div class="col-md-4">
+        <div class="box">
+          <p id="country-flag"><img src="https://www.countryflags.io/${flagCode}/shiny/64.png"></p>
+          <p id="country-name">${countryName}</p>
+            <ul id="country-data">
+              <li>Capital: ${capital}</li>
+              <li>Languages: ${languages}</li>
+              <li>Region: ${region}</li>
+              <li>Calling Code: ${callingCode}</li>
+              <li>Currency: ${currency}</li>
+              <li>Population: ${population.toLocaleString()}</li>
+            </ul>
+        </div>
       </div>`;
     $(".main").append(box);
     $(".box").css("visibility", "visible");
+    }
   }
 }
 
-function searchType() {
-  let userInput = $("#query").val();
-  let url = `https://restcountries-v1.p.rapidapi.com/name/${userInput}`;
+function handleUrl() {
+  let input = $("#query").val();
+  let url = `${BASE}/name/${input}`;
   let searchBy = $("option:selected").text();
   switch (searchBy) {
     case "Name":
-      url = `https://restcountries-v1.p.rapidapi.com/name/${userInput}`;
+      url = `${BASE}/name/${input}`;
       break;
     case "Capital":
-      url = `https://restcountries-v1.p.rapidapi.com/capital/${userInput}`;
-      break;
+      url = `${BASE}/capital/${input}`;
+        break;
     case "Currency":
-      url = `https://restcountries-v1.p.rapidapi.com/currency/${userInput}`;
-      break;
+      url = `${BASE}/currency/${input}`;
+        break;
     case "Region":
-      url = `https://restcountries-v1.p.rapidapi.com/region/${userInput}`;
-      break;
+      url = `${BASE}/region/${input}`;
+        break;
     case "Calling Code":
-      url = `https://restcountries-v1.p.rapidapi.com/callingcode/${userInput}`;
-      break;
+      url = `${BASE}/callingcode/${input}`;
+        break;
   }
   return url;
 }
