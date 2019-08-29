@@ -21,7 +21,6 @@
     <div class="row search">
       <div class="col-md-1 offset-md-1">
         <select id="search-type" name="search by">
-            <option selected disabled>Search By</option>
             <option value="name">Name</option>
             <option value="capital">Capital</option>
             <option value="currency">Currency</option>
@@ -32,7 +31,7 @@
 
       <div class="col-md-8">
         <form id="search-form" name="search-form" autocomplete="off">
-          <input type="search" id="query" class="search-field" list="countries"/>
+          <input type="search" id="query" class="search-field" list="countries" placeholder="Search by Name"/>
           <datalist id="countries" dir="ltr"></datalist>
           <button name="search-btn" id="search-btn"><img src="images/search.svg"></button>
         </form>

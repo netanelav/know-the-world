@@ -25,7 +25,7 @@ function createDataList(response) {
 
 $("#query").click(function() {
   let searchBy = $("option:selected").text();
-  if (searchBy === "Search By" || searchBy === "Name") {
+  if (searchBy === "Name") {
     getAllCountires();
   } else {
      $("#countries").html("");

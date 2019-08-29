@@ -28,8 +28,9 @@ form input {
   width: 60%;
 }
 
-#search-form, .search-field  {
-  margin-right: 15px
+#search-form,
+.search-field {
+  margin-right: 15px;
 }
 
 #search-btn {
@@ -102,7 +103,7 @@ select {
   color: #514e7f;
   font-size: 20px;
   font-weight: 600;
-  text-align-last:center; 
+  text-align-last: center;
 }
 
 h5 {
@@ -116,5 +117,8 @@ h5 {
 @media only screen and (max-width: 600px) {
   .footer {
     display: none;
+  }
+  .header h1 {
+    font-size: 45px;
   }
 }

@@ -106,3 +106,9 @@ function handleUrl() {
   }
   return url;
 }
+
+$("#search-type").click(function() {
+  let searchBy = $("option:selected").text();
+  let placeholder = `Search by ${searchBy}`
+  $('#query').attr("placeholder",placeholder);
+});
