@@ -28,7 +28,9 @@ function getData() {
 }
 
 function handleData(response) {
-  let input = $("#query").val().toLowerCase();
+  let input = $("#query")
+    .val()
+    .toLowerCase();
   let searchBy = $("option:selected").text();
   for (let i = 0; i < response.length; i++) {
     let country = response[i];
@@ -107,8 +109,8 @@ function handleUrl() {
   return url;
 }
 
-$("#search-type").change(function() {
-  let searchBy = $("option:selected").text();
-  let placeholder = `Search by ${searchBy}`
-  $('#query').attr("placeholder",placeholder);
-});
+setInterval(function updatePlaceholder() {
+  let type = $("option:selected").text();
+  let placeholder = `Search by ${type}`;
+  $("#query").attr("placeholder", placeholder);
+}, 500);
