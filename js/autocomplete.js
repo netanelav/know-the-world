@@ -17,10 +17,10 @@ function getAllCountires() {
 function createDataList(response) {
   $("#countries").html("");
   for (let i = 0; i < response.length; i++) {
-    let country = response[i].name;
-    let option = `<option value="${country}"/>`;
-    $("#countries").append(option);
-  }
+      let country = response[i].name;
+      let option = `<option value="${country}"/>`;
+      $("#countries").append(option); 
+    }
 }
 
 $("#query").click(function() {

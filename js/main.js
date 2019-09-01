@@ -107,7 +107,7 @@ function handleUrl() {
   return url;
 }
 
-$("#search-type").click(function() {
+$("#search-type").change(function() {
   let searchBy = $("option:selected").text();
   let placeholder = `Search by ${searchBy}`
   $('#query').attr("placeholder",placeholder);
