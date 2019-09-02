@@ -63,6 +63,7 @@ function handleData(response) {
       let callingCode = country.callingCodes;
       let currency = country.currencies;
       let population = country.population;
+      let borders = formatBorder(country.borders);
       let flagCode = country.alpha2Code;
       let box = `
       <div class="col-md-4">
@@ -72,10 +73,11 @@ function handleData(response) {
             <ul id="country-data">
               <li>Capital: ${capital}</li>
               <li>Languages: ${languages}</li>
-              <li>Region: ${region}</li>
-              <li>Calling Code: ${callingCode}</li>
               <li>Currency: ${currency}</li>
               <li>Population: ${population.toLocaleString()}</li>
+              <li>Region: ${region}</li>
+              <li>Calling Code: ${callingCode}</li>
+              <li>Borders: ${borders}</li>
             </ul>
         </div>
       </div>`;
@@ -109,8 +111,20 @@ function handleUrl() {
   return url;
 }
 
-setInterval(function updatePlaceholder() {
+function formatBorder(borders) {
+  let newBorders = [];
+  if (borders != "") {
+    for (let i = 0; i < borders.length; i++) {
+      newBorders.push(borders[i].toLowerCase());
+    }
+    return newBorders;
+  } else {
+    return "none";
+  }
+}
+
+$("#search-type").change(function updatePlaceholder() {
   let type = $("option:selected").text();
   let placeholder = `Search by ${type}`;
   $("#query").attr("placeholder", placeholder);
-}, 500);
+});
